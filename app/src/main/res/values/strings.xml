@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">CalculatorKotlin</string>
+    <string name="app_name">calculator</string>
+    <string name="activity_main_calculator_title_text">Calculator</string>
+    <string name="activity_main_calculator_seven_text">7</string>
+    <string name="activity_main_calculator_nine_text">9</string>
+    <string name="activity_main_calculator_eight_text">8</string>
+    <string name="activity_main_calculator_division_text">/</string>
+    <string name="activity_main_calculator_four_text">4</string>
+    <string name="activity_main_calculator_five_text">5</string>
+    <string name="activity_main_calculator_six_text">6</string>
+    <string name="activity_main_calculator_multiply_text">*</string>
+    <string name="activity_main_calculator_one_text">1</string>
+    <string name="activity_main_calculator_two_text">2</string>
+    <string name="activity_main_calculator_three_text">3</string>
+    <string name="activity_main_calculator_subtraction_text">-</string>
+    <string name="activity_main_calculator_zero_text">0</string>
+    <string name="activity_main_calculator_clean_text">C</string>
+    <string name="activity_main_calculator_equals_text">=</string>
+    <string name="activity_main_calculator_add_text">+</string>
+    <string name="activity_main_calculator_result_text">Result</string>
+    <string name="activity_main_calculator_empty_operation"></string>
+    <string name="content_description_icon_calculator">icon_calculator</string>
+    <string name="calculator_error_division_by_zero">Error: division by zero</string>
+    <string name="calculator_error_incomplete_operation">Error: incomplete operation</string>
+    <string name="operation_deleted">Operation deleted</string>
+    <string name="value_deleted">Value deleted</string>
 </resources>
