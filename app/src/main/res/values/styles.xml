@@ -3,11 +3,12 @@
 
     <style name="button_style">
         <item name="android:layout_marginBottom">@dimen/margin_between_button_xsmall</item>
+        <item name="android:background">@color/white_result</item>
     </style>
 
     <style name="title_style">
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/blue_result</item>
+        <item name="android:textColor">@color/white_result</item>
         <item name="android:textSize">@dimen/text_size_title_xbig</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -15,8 +16,8 @@
     <style name="result_style">
         <item name="android:padding">@dimen/padding_result_small</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white_background</item>
-        <item name="android:background">@color/blue_result</item>
+        <item name="android:textColor">@color/green_background</item>
+        <item name="android:background">@color/white_result</item>
         <item name="android:gravity">end|bottom</item>
         <item name="android:textSize">@dimen/text_size_result_xbig</item>
     </style>
@@ -24,7 +25,7 @@
     <style name="complete_operation_style">
         <item name="android:padding">@dimen/padding_result_small</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white_background</item>
+        <item name="android:textColor">@color/green_background</item>
         <item name="android:background">@color/transparent_background</item>
         <item name="android:gravity">end|top</item>
         <item name="android:textSize">@dimen/text_size_result_xbig</item>
