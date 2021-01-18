@@ -6,6 +6,10 @@
         <item name="android:background">@color/white_result</item>
     </style>
 
+    <style name="button_style_first_raw" parent="button_style">
+        <item name="android:layout_marginHorizontal">@dimen/margin_between_button_xsmall</item>
+    </style>
+
     <style name="title_style">
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white_result</item>
@@ -20,6 +24,7 @@
         <item name="android:background">@color/white_result</item>
         <item name="android:gravity">end|bottom</item>
         <item name="android:textSize">@dimen/text_size_result_xbig</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bottom_result_xbig</item>
     </style>
 
     <style name="complete_operation_style">

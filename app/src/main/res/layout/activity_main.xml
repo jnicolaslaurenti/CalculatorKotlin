@@ -141,11 +141,10 @@
 
     <Button
         android:id="@+id/button_zero"
-        style="@style/button_style"
+        style="@style/button_style_first_raw"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHeight_default="wrap"
-        android:layout_marginHorizontal="@dimen/margin_between_button_xsmall"
         android:text="@string/activity_main_calculator_zero_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_clean"
@@ -153,11 +152,10 @@
 
     <Button
         android:id="@+id/button_clean"
-        style="@style/button_style"
+        style="@style/button_style_first_raw"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHeight_default="wrap"
-        android:layout_marginHorizontal="@dimen/margin_between_button_xsmall"
         android:text="@string/activity_main_calculator_clean_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_equals"
@@ -165,11 +163,10 @@
 
     <Button
         android:id="@+id/button_add"
-        style="@style/button_style"
+        style="@style/button_style_first_raw"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHeight_default="wrap"
-        android:layout_marginHorizontal="@dimen/margin_between_button_xsmall"
         android:text="@string/activity_main_calculator_add_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -177,11 +174,10 @@
 
     <Button
         android:id="@+id/button_equals"
-        style="@style/button_style"
+        style="@style/button_style_first_raw"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHeight_default="wrap"
-        android:layout_marginHorizontal="@dimen/margin_between_button_xsmall"
         android:text="@string/activity_main_calculator_equals_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_add"
@@ -215,7 +211,6 @@
         style="@style/result_style"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/margin_bottom_result_xbig"
         android:text="@string/activity_main_calculator_result_text"
         app:layout_constraintBottom_toTopOf="@id/button_seven"
         app:layout_constraintStart_toStartOf="parent"
