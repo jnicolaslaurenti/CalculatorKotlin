@@ -185,9 +185,9 @@
 
     <ImageView
         android:id="@+id/image_view_icon_calculator"
+        style="@style/image_style"
         android:layout_width="@dimen/icon_size_xbig"
         android:layout_height="@dimen/icon_size_xbig"
-        android:layout_marginStart="@dimen/margin_start_icon_small"
         android:contentDescription="@string/content_description_icon_calculator"
         android:src="@drawable/activity_main_calculator_icon_drawable"
         app:layout_constraintBottom_toTopOf="@id/guideline_title"
@@ -222,7 +222,6 @@
         style="@style/complete_operation_style"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/margin_bottom_result_xbig"
         android:text="@string/activity_main_calculator_empty_operation"
         app:layout_constraintBottom_toBottomOf="@id/text_view_result"
         app:layout_constraintEnd_toEndOf="@id/text_view_result"

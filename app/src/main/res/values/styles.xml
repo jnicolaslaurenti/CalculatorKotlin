@@ -34,6 +34,10 @@
         <item name="android:background">@color/transparent_background</item>
         <item name="android:gravity">end|top</item>
         <item name="android:textSize">@dimen/text_size_result_xbig</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bottom_result_xbig</item>
     </style>
 
+    <style name="image_style">
+        <item name="android:layout_marginStart">@dimen/margin_start_icon_small</item>
+    </style>
 </resources>
