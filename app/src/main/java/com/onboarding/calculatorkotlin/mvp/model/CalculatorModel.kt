@@ -14,7 +14,7 @@ class CalculatorModel : CalculatorContract.Model {
     private var operator = EMPTY_STRING
 
     override fun setValue(value: String) {
-        if (operator == EMPTY_STRING) {
+        if (operator.isEmpty()) {
             firstOperand += value
         } else {
             secondOperand += value
@@ -22,18 +22,18 @@ class CalculatorModel : CalculatorContract.Model {
     }
 
     override fun setOperator(operator: String) {
-        if (firstOperand != EMPTY_STRING) {
+        if (firstOperand.isNotEmpty()) {
             this.operator = operator
         }
     }
 
     private fun getCharged(): Int {
         var charged = 0
-        if (firstOperand != EMPTY_STRING) {
+        if (firstOperand.isNotEmpty()) {
             charged++
-            if (operator != EMPTY_STRING) {
+            if (operator.isNotEmpty()) {
                 charged++
-                if (firstOperand == EMPTY_STRING) {
+                if (firstOperand.isEmpty()) {
                     charged++
                 }
             }
