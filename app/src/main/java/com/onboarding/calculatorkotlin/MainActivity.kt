@@ -1,6 +1,7 @@
 package com.onboarding.calculatorkotlin
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.onboarding.calculatorkotlin.databinding.ActivityMainBinding
 import com.onboarding.calculatorkotlin.mvp.CalculatorContract
@@ -22,24 +23,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setOnClickListeners() {
-        binding.buttonAdd.setOnClickListener { presenter.onOperatorButtonPressed(binding.buttonAdd.text.toString()) }
+        onOperatorPressed(binding.buttonAdd)
+        onOperatorPressed(binding.buttonMultiply)
+        onOperatorPressed(binding.buttonDivision)
         binding.buttonSubtraction.setOnClickListener { presenter.onMinusButtonPressed() }
-        binding.buttonMultiply.setOnClickListener { presenter.onOperatorButtonPressed(binding.buttonMultiply.text.toString()) }
-        binding.buttonDivision.setOnClickListener { presenter.onOperatorButtonPressed(binding.buttonDivision.text.toString()) }
-        binding.buttonZero.setOnClickListener { presenter.onNumberButtonPressed(binding.buttonZero.text.toString()) }
-        binding.buttonOne.setOnClickListener { presenter.onNumberButtonPressed(binding.buttonOne.text.toString()) }
-        binding.buttonTwo.setOnClickListener { presenter.onNumberButtonPressed(binding.buttonTwo.text.toString()) }
-        binding.buttonThree.setOnClickListener { presenter.onNumberButtonPressed(binding.buttonThree.text.toString()) }
-        binding.buttonFour.setOnClickListener { presenter.onNumberButtonPressed(binding.buttonFour.text.toString()) }
-        binding.buttonFive.setOnClickListener { presenter.onNumberButtonPressed(binding.buttonFive.text.toString()) }
-        binding.buttonSix.setOnClickListener { presenter.onNumberButtonPressed(binding.buttonSix.text.toString()) }
-        binding.buttonSeven.setOnClickListener { presenter.onNumberButtonPressed(binding.buttonSeven.text.toString()) }
-        binding.buttonEight.setOnClickListener { presenter.onNumberButtonPressed(binding.buttonEight.text.toString()) }
-        binding.buttonNine.setOnClickListener { presenter.onNumberButtonPressed(binding.buttonNine.text.toString()) }
+        onNumberPressed(binding.buttonZero)
+        onNumberPressed(binding.buttonOne)
+        onNumberPressed(binding.buttonTwo)
+        onNumberPressed(binding.buttonThree)
+        onNumberPressed(binding.buttonFour)
+        onNumberPressed(binding.buttonFive)
+        onNumberPressed(binding.buttonSix)
+        onNumberPressed(binding.buttonSeven)
+        onNumberPressed(binding.buttonEight)
+        onNumberPressed(binding.buttonNine)
         binding.buttonClean.setOnClickListener { presenter.onCleanButtonPressed() }
         binding.buttonClean.setOnLongClickListener {
             presenter.onCleanButtonLongPressed()
             true
         }
+    }
+
+    private fun onNumberPressed(button: Button){
+        button.setOnClickListener { presenter.onNumberButtonPressed(button.text.toString()) }
+    }
+
+    private fun onOperatorPressed(button: Button){
+        button.setOnClickListener { presenter.onOperatorButtonPressed(button.text.toString()) }
     }
 }

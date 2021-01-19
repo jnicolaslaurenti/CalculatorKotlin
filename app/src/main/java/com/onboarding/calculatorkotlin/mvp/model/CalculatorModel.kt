@@ -1,11 +1,11 @@
 package com.onboarding.calculatorkotlin.mvp.model
 
 import com.onboarding.calculatorkotlin.mvp.CalculatorContract
-import com.onboarding.calculatorkotlin.util.Constants.ANY
-import com.onboarding.calculatorkotlin.util.Constants.EMPTY_STRING
-import com.onboarding.calculatorkotlin.util.Constants.MINUS
-import com.onboarding.calculatorkotlin.util.Constants.ONE_VALUE_REMOVED
-import com.onboarding.calculatorkotlin.util.Constants.TWO_CHARGED
+import com.onboarding.calculatorkotlin.util.ANY_CHARGED
+import com.onboarding.calculatorkotlin.util.EMPTY_STRING
+import com.onboarding.calculatorkotlin.util.MINUS
+import com.onboarding.calculatorkotlin.util.ONE_VALUE_REMOVED
+import com.onboarding.calculatorkotlin.util.TWO_CHARGED
 
 class CalculatorModel : CalculatorContract.Model {
 
@@ -28,7 +28,7 @@ class CalculatorModel : CalculatorContract.Model {
     }
 
     private fun getCharged(): Int {
-        var charged = 0
+        var charged = ANY_CHARGED
         if (firstOperand.isNotEmpty()) {
             charged++
             if (operator.isNotEmpty()) {
@@ -43,7 +43,7 @@ class CalculatorModel : CalculatorContract.Model {
 
     override fun addMinus() {
         val charged = getCharged()
-        if (charged == ANY || charged == TWO_CHARGED) {
+        if (charged == ANY_CHARGED || charged == TWO_CHARGED) {
             setValue(MINUS)
         } else {
             setOperator(MINUS)
@@ -73,5 +73,4 @@ class CalculatorModel : CalculatorContract.Model {
         }
         return firstOperand
     }
-
 }

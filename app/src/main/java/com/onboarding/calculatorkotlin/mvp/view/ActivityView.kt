@@ -8,5 +8,4 @@ open class ActivityView(activity: Activity) {
 
     val activity: Activity?
         get() = activityRef.get()
-
 }
