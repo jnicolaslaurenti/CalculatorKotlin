@@ -1,9 +1,6 @@
 package com.onboarding.calculatorkotlin.mvp.model
 
 import com.onboarding.calculatorkotlin.mvp.CalculatorContract
-import com.onboarding.calculatorkotlin.util.EMPTY_STRING
-import com.onboarding.calculatorkotlin.util.MINUS
-import com.onboarding.calculatorkotlin.util.ONE_VALUE_REMOVED
 
 class CalculatorModel : CalculatorContract.Model {
 
@@ -20,7 +17,7 @@ class CalculatorModel : CalculatorContract.Model {
     }
 
     override fun setOperator(operator: String) {
-            this.operator = operator
+        this.operator = operator
     }
 
     override fun cleanValue() {
@@ -53,5 +50,11 @@ class CalculatorModel : CalculatorContract.Model {
             return operator
         }
         return firstOperand
+    }
+
+    companion object {
+        private const val EMPTY_STRING = ""
+        private const val MINUS = "-"
+        private const val ONE_VALUE_REMOVED = 1
     }
 }
