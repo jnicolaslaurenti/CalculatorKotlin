@@ -28,8 +28,8 @@ class CalculatorPresenter(
 
     override fun onCleanButtonPressed() {
         model.cleanValue()
-            view.showCompleteOperation(model.getOperation())
-            view.showLastValue(model.getLastModified())
+        view.showCompleteOperation(model.getOperation())
+        view.showLastValue(model.getLastModified())
     }
 
     override fun onCleanButtonLongPressed() {
