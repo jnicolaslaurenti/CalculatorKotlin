@@ -35,9 +35,9 @@ class CalculatorModel : CalculatorContract.Model {
             operator = EMPTY_STRING
         } else {
             if (operator.isEmpty()) {
-                    firstOperand = firstOperand.dropLast(ONE_VALUE_REMOVED)
+                firstOperand = firstOperand.dropLast(ONE_VALUE_REMOVED)
             } else {
-                    secondOperand = secondOperand.dropLast(ONE_VALUE_REMOVED)
+                secondOperand = secondOperand.dropLast(ONE_VALUE_REMOVED)
             }
         }
     }
@@ -62,9 +62,7 @@ class CalculatorModel : CalculatorContract.Model {
         }
     }
 
-    private fun operandEnabled(operand: String): Boolean {
-        return (operand != EMPTY_STRING && operand != SUB)
-    }
+    private fun operandEnabled(operand: String) = (operand != EMPTY_STRING && operand != SUB)
 
     private fun operationEnabled(): Boolean {
         var operationEnabled = true
@@ -85,27 +83,25 @@ class CalculatorModel : CalculatorContract.Model {
     }
 
     private fun makeOperation(): Double {
-        when (operator) {
+        return when (operator) {
             ADD -> {
-                return firstOperand.toDouble() + secondOperand.toDouble()
+                firstOperand.toDouble() + secondOperand.toDouble()
             }
             SUB -> {
-                return firstOperand.toDouble() - secondOperand.toDouble()
+                firstOperand.toDouble() - secondOperand.toDouble()
 
             }
             MUL -> {
-                return firstOperand.toDouble() * secondOperand.toDouble()
+                firstOperand.toDouble() * secondOperand.toDouble()
             }
             DIV -> {
-                return firstOperand.toDouble() / secondOperand.toDouble()
+                firstOperand.toDouble() / secondOperand.toDouble()
             }
+            else -> DEFAULT_RESULT
         }
-        return DEFAULT_RESULT
     }
 
-    override fun getOperation(): String {
-        return "$firstOperand $operator $secondOperand"
-    }
+    override fun getOperation() = "$firstOperand $operator $secondOperand"
 
     override fun getResult(): String {
         var result = DEFAULT_RESULT
