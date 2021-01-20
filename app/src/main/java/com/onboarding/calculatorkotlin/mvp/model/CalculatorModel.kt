@@ -1,11 +1,9 @@
 package com.onboarding.calculatorkotlin.mvp.model
 
 import com.onboarding.calculatorkotlin.mvp.CalculatorContract
-import com.onboarding.calculatorkotlin.util.ANY_CHARGED
 import com.onboarding.calculatorkotlin.util.EMPTY_STRING
 import com.onboarding.calculatorkotlin.util.MINUS
 import com.onboarding.calculatorkotlin.util.ONE_VALUE_REMOVED
-import com.onboarding.calculatorkotlin.util.TWO_CHARGED
 
 class CalculatorModel : CalculatorContract.Model {
 
@@ -22,32 +20,7 @@ class CalculatorModel : CalculatorContract.Model {
     }
 
     override fun setOperator(operator: String) {
-        if (firstOperand.isNotEmpty()) {
             this.operator = operator
-        }
-    }
-
-    private fun getCharged(): Int {
-        var charged = ANY_CHARGED
-        if (firstOperand.isNotEmpty()) {
-            charged++
-            if (operator.isNotEmpty()) {
-                charged++
-                if (firstOperand.isEmpty()) {
-                    charged++
-                }
-            }
-        }
-        return charged
-    }
-
-    override fun addMinus() {
-        val charged = getCharged()
-        if (charged == ANY_CHARGED || charged == TWO_CHARGED) {
-            setValue(MINUS)
-        } else {
-            setOperator(MINUS)
-        }
     }
 
     override fun cleanValue() {
@@ -57,6 +30,14 @@ class CalculatorModel : CalculatorContract.Model {
             operator = EMPTY_STRING
         }
         firstOperand = firstOperand.dropLast(ONE_VALUE_REMOVED)
+    }
+
+    override fun addMinus() {
+        if ((firstOperand.isEmpty() && operator.isEmpty()) || (secondOperand.isEmpty() && operator.isNotEmpty())) {
+            setValue(MINUS)
+        } else {
+            setOperator(MINUS)
+        }
     }
 
     override fun cleanAll() {
