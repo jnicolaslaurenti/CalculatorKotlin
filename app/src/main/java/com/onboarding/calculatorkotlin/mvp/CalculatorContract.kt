@@ -1,5 +1,7 @@
 package com.onboarding.calculatorkotlin.mvp
 
+import com.onboarding.calculatorkotlin.util.ConstantsUtils.Error
+
 interface CalculatorContract {
 
     interface Model {
@@ -9,10 +11,18 @@ interface CalculatorContract {
         fun getLastModified(): String
         fun cleanValue()
         fun cleanAll()
+        fun getError(): Error
+        fun getResult(): String
+        fun getOperation(): String
     }
 
     interface View {
         fun showLastValue(value: String)
+        fun showCompleteOperation(operation: String)
+        fun showDivisionByZeroError()
+        fun showIncompleteOperationError()
+        fun resetOperationView()
+        fun resetResultView()
     }
 
     interface Presenter {
@@ -21,5 +31,6 @@ interface CalculatorContract {
         fun onMinusButtonPressed()
         fun onCleanButtonPressed()
         fun onCleanButtonLongPressed()
+        fun onEqualButtonPressed()
     }
 }

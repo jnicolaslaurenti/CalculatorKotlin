@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setOnClickListeners() {
+        binding.buttonEquals.setOnClickListener { presenter.onEqualButtonPressed() }
         onOperatorPressed(binding.buttonAdd)
         onOperatorPressed(binding.buttonMultiply)
         onOperatorPressed(binding.buttonDivision)
@@ -44,11 +45,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun onNumberPressed(button: Button){
+    private fun onNumberPressed(button: Button) {
         button.setOnClickListener { presenter.onNumberButtonPressed(button.text.toString()) }
     }
 
-    private fun onOperatorPressed(button: Button){
+    private fun onOperatorPressed(button: Button) {
         button.setOnClickListener { presenter.onOperatorButtonPressed(button.text.toString()) }
     }
 }
