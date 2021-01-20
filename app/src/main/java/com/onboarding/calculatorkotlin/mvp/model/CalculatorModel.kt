@@ -33,7 +33,8 @@ class CalculatorModel : CalculatorContract.Model {
         if ((firstOperand.isEmpty() && operator.isEmpty()) || (secondOperand.isEmpty() && operator.isNotEmpty())) {
             setValue(MINUS)
         } else {
-            setOperator(MINUS)
+            if (firstOperand.isNotEmpty() && firstOperand != MINUS)
+                setOperator(MINUS)
         }
     }
 
@@ -44,12 +45,13 @@ class CalculatorModel : CalculatorContract.Model {
     }
 
     override fun getLastModified(): String {
-        if (secondOperand.isNotEmpty()) {
-            return secondOperand
+        return if (secondOperand.isNotEmpty()) {
+            secondOperand
         } else if (operator.isNotEmpty()) {
-            return operator
+            operator
+        } else {
+            firstOperand
         }
-        return firstOperand
     }
 
     companion object {
