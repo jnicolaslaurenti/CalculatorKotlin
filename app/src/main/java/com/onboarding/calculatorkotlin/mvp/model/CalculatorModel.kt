@@ -101,7 +101,7 @@ class CalculatorModel : CalculatorContract.Model {
         }
     }
 
-    override fun getOperation() = "$firstOperand $operator $secondOperand"
+    override fun getOperation() = "$firstOperand$operator$secondOperand"
 
     override fun getResult(): String {
         var result = DEFAULT_RESULT

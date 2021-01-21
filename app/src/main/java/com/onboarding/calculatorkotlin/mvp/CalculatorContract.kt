@@ -23,6 +23,8 @@ interface CalculatorContract {
         fun showIncompleteOperationError()
         fun resetOperationView()
         fun resetResultView()
+        fun showDeleteAllMessage()
+        fun showDeleteMessage()
     }
 
     interface Presenter {
