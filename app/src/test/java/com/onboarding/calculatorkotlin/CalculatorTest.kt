@@ -4,7 +4,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.onboarding.calculatorkotlin.mvp.CalculatorContract
 import com.onboarding.calculatorkotlin.mvp.model.CalculatorModel
 import com.onboarding.calculatorkotlin.mvp.presenter.CalculatorPresenter
-import com.onboarding.calculatorkotlin.util.ConstantsUtils.Error
+import com.onboarding.calculatorkotlin.util.ConstantsUtils.Result
 import junit.framework.TestCase.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -134,21 +134,23 @@ class CalculatorTest {
         model.setValue(ONE_STRING)
         model.setOperator(MUL)
         model.setValue(THREE_STRING)
+        val result = model.getResult()
         presenter.onEqualButtonPressed()
-        assertEquals(THREE_RESULT_DOUBLE, model.getResult())
-        verify(view).showLastValue(model.getResult())
-        verify(view).showCompleteOperation(model.getResult())
+        assertEquals(Result.SUCCES, result)
+        assertEquals(THREE_RESULT_DOUBLE, model.getResultOperation())
+        verify(view).showLastValue(model.getLastModified())
+        verify(view).showCompleteOperation(model.getOperation())
         verifyNoMoreInteractions(view)
     }
 
     @Test
-    fun ErrorByDivisionByZero() {
+    fun errorByDivisionByZero() {
         model.setValue(ONE_STRING)
         model.setOperator(DIV)
         model.setValue(ZERO_STRING)
-        val error = model.getError()
+        val error = model.getResult()
         presenter.onEqualButtonPressed()
-        assertEquals(Error.ERROR_DIVISION_BY_ZERO, error)
+        assertEquals(Result.ERROR_DIVISION_BY_ZERO, error)
         verify(view).showDivisionByZeroError()
         verify(view).resetResultView()
         verify(view).resetOperationView()
@@ -156,12 +158,12 @@ class CalculatorTest {
     }
 
     @Test
-    fun ErrorIncompleteOperation() {
+    fun errorIncompleteOperation() {
         model.setValue(ONE_STRING)
         model.setOperator(DIV)
-        val error = model.getError()
+        val error = model.getResult()
         presenter.onEqualButtonPressed()
-        assertEquals(Error.ERROR_INCOMPLETE_OPERATION, error)
+        assertEquals(Result.ERROR_INCOMPLETE_OPERATION, error)
         verify(view).showIncompleteOperationError()
         verify(view).resetResultView()
         verify(view).resetOperationView()
@@ -171,7 +173,7 @@ class CalculatorTest {
     @Test
     fun emptyOperator() {
         model.setValue(ONE_STRING)
-        assertEquals(ONE_RESULT_DOUBLE, model.getResult())
+        assertEquals(ONE_RESULT_DOUBLE, model.getResultOperation())
     }
 
     @Test
@@ -179,7 +181,7 @@ class CalculatorTest {
         model.setValue(ONE_STRING)
         model.setOperator(ADD)
         model.setValue(TWO_STRING)
-        assertEquals(THREE_RESULT_DOUBLE, model.getResult())
+        assertEquals(THREE_RESULT_DOUBLE, model.getResultOperation())
     }
 
     @Test
@@ -187,7 +189,7 @@ class CalculatorTest {
         model.setValue(THREE_STRING)
         model.setOperator(SUB)
         model.setValue(ONE_STRING)
-        assertEquals(TWO_RESULT_DOUBLE, model.getResult())
+        assertEquals(TWO_RESULT_DOUBLE, model.getResultOperation())
     }
 
     @Test
@@ -195,7 +197,7 @@ class CalculatorTest {
         model.setValue(FOUR_STRING)
         model.setOperator(DIV)
         model.setValue(TWO_STRING)
-        assertEquals(TWO_RESULT_DOUBLE, model.getResult())
+        assertEquals(TWO_RESULT_DOUBLE, model.getResultOperation())
     }
 
     @Test

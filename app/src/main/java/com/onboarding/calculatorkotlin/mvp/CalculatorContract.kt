@@ -1,6 +1,6 @@
 package com.onboarding.calculatorkotlin.mvp
 
-import com.onboarding.calculatorkotlin.util.ConstantsUtils.Error
+import com.onboarding.calculatorkotlin.util.ConstantsUtils.Result
 
 interface CalculatorContract {
 
@@ -11,8 +11,8 @@ interface CalculatorContract {
         fun getLastModified(): String
         fun cleanValue()
         fun cleanAll()
-        fun getError(): Error
-        fun getResult(): String
+        fun getResult(): Result
+        fun getResultOperation(): String
         fun getOperation(): String
     }
 
