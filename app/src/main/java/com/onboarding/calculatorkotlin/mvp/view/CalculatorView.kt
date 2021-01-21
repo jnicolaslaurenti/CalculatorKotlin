@@ -23,12 +23,19 @@ class CalculatorView(activity: Activity, private var binding: ActivityMainBindin
     }
 
     override fun showIncompleteOperationError() {
-        Toast.makeText(activity, R.string.calculator_error_incomplete_operation, Toast.LENGTH_SHORT)
-            .show()
+        Toast.makeText(activity, R.string.calculator_error_incomplete_operation, Toast.LENGTH_SHORT).show()
     }
 
     override fun resetResultView() {
         binding.textViewResult.setText(R.string.activity_main_calculator_result_text)
+    }
+
+    override fun showDeleteAllMessage() {
+        Toast.makeText(activity, R.string.value_deleted, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showDeleteMessage() {
+        Toast.makeText(activity, R.string.operation_deleted, Toast.LENGTH_SHORT).show()
     }
 
     override fun resetOperationView() {

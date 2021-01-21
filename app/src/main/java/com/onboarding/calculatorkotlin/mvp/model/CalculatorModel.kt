@@ -1,7 +1,7 @@
 package com.onboarding.calculatorkotlin.mvp.model
 
 import com.onboarding.calculatorkotlin.mvp.CalculatorContract
-import com.onboarding.calculatorkotlin.util.ConstantsUtils.Error
+import com.onboarding.calculatorkotlin.util.ConstantsUtils.Result
 
 class CalculatorModel : CalculatorContract.Model {
 
@@ -66,20 +66,21 @@ class CalculatorModel : CalculatorContract.Model {
 
     private fun operationEnabled(): Boolean {
         var operationEnabled = true
-        if (getError() == Error.ERROR_DIVISION_BY_ZERO || getError() == Error.ERROR_INCOMPLETE_OPERATION) {
+        val result = getResult()
+        if (result == Result.ERROR_DIVISION_BY_ZERO || result == Result.ERROR_INCOMPLETE_OPERATION) {
             operationEnabled = false
         }
         return operationEnabled
     }
 
-    override fun getError(): Error {
+    override fun getResult(): Result {
         if (!operandEnabled(firstOperand) || !operandEnabled(secondOperand)) {
-            return Error.ERROR_INCOMPLETE_OPERATION
+            return Result.ERROR_INCOMPLETE_OPERATION
         }
         if (operandEnabled(firstOperand) && (operator == DIV) && (secondOperand == ZERO_STRING)) {
-            return Error.ERROR_DIVISION_BY_ZERO
+            return Result.ERROR_DIVISION_BY_ZERO
         }
-        return Error.NONE
+        return Result.SUCCESS
     }
 
     private fun makeOperation(): Double {
@@ -101,9 +102,9 @@ class CalculatorModel : CalculatorContract.Model {
         }
     }
 
-    override fun getOperation() = "$firstOperand $operator $secondOperand"
+    override fun getOperation() = "$firstOperand$operator$secondOperand"
 
-    override fun getResult(): String {
+    override fun getResultOperation(): String {
         var result = DEFAULT_RESULT
         if (firstOperand != EMPTY_STRING) {
             result = firstOperand.toDouble()
