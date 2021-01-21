@@ -52,7 +52,7 @@ class CalculatorTest {
     }
 
     @Test
-    fun CleanAllTheOperation() {
+    fun cleanAllTheOperation() {
         presenter.onCleanButtonLongPressed()
         assertEquals(EMPTY_STRING, model.getOperation())
         verify(view).resetResultView()
@@ -62,7 +62,7 @@ class CalculatorTest {
     }
 
     @Test
-    fun CleanAValueInSecondOperand() {
+    fun cleanAValueInSecondOperand() {
         model.setValue(ONE_STRING)
         model.setOperator(MUL)
         model.setValue(TWO_STRING)
@@ -76,7 +76,7 @@ class CalculatorTest {
     }
 
     @Test
-    fun CleanAValueInFirstOperand() {
+    fun cleanAValueInFirstOperand() {
         model.setValue(ONE_STRING)
         model.setValue(TWO_STRING)
         presenter.onCleanButtonPressed()
@@ -88,7 +88,7 @@ class CalculatorTest {
     }
 
     @Test
-    fun CleanOperator() {
+    fun cleanOperator() {
         model.setValue(ONE_STRING)
         model.setOperator(MUL)
         presenter.onCleanButtonPressed()
