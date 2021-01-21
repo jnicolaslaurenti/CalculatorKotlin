@@ -136,7 +136,7 @@ class CalculatorTest {
         model.setValue(THREE_STRING)
         val result = model.getResult()
         presenter.onEqualButtonPressed()
-        assertEquals(Result.SUCCES, result)
+        assertEquals(Result.SUCCESS, result)
         assertEquals(THREE_RESULT_DOUBLE, model.getResultOperation())
         verify(view).showLastValue(model.getLastModified())
         verify(view).showCompleteOperation(model.getOperation())

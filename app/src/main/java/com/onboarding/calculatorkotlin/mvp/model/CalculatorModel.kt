@@ -80,7 +80,7 @@ class CalculatorModel : CalculatorContract.Model {
         if (operandEnabled(firstOperand) && (operator == DIV) && (secondOperand == ZERO_STRING)) {
             return Result.ERROR_DIVISION_BY_ZERO
         }
-        return Result.SUCCES
+        return Result.SUCCESS
     }
 
     private fun makeOperation(): Double {

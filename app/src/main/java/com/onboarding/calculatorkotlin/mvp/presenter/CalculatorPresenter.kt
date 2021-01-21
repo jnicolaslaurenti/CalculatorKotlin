@@ -45,7 +45,7 @@ class CalculatorPresenter(
         val result = model.getResult()
         model.cleanAll()
         when (result) {
-            Result.SUCCES -> {
+            Result.SUCCESS -> {
                 model.setValue(resultOperation)
                 view.showLastValue(resultOperation)
                 view.showCompleteOperation(resultOperation)
